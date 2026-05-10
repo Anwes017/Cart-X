@@ -1,0 +1,23 @@
+.DS_Store
+Thumbs.db
+
+# IDE/editor
+.idea/
+.vscode/
+*.iml
+
+# Java/Maven build output
+target/
+
+# JavaScript build output and dependencies
+node_modules/
+dist/
+
+# Logs
+*.log
+
+# Local environment overrides
+.env
+.env.*
+application-local.yml
+application-local.properties

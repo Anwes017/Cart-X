@@ -1,0 +1,53 @@
+#server:
+#  port: 8084
+#
+#spring:
+#  application:
+#    name: order-service
+#
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/order_db
+#    username: ${DB_USERNAME:postgres}
+#    password: ${DB_PASSWORD:}
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+
+server:
+  port: 8084
+
+spring:
+  application:
+    name: order-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/order_db
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: order-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: com.ecommerce.common.event
+        spring.json.value.default.type: com.ecommerce.common.event.PaymentSuccessEvent
+
+services:
+  product: http://localhost:8082
+  cart: http://localhost:8083
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
