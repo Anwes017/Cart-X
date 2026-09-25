@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 This is from binayaH
+=======
+this is from AyesH
+>>>>>>> origin/dev
