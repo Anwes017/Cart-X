@@ -1,3 +1,4 @@
+This is a cartx project
 # CartX
 
 CartX is a microservices-based ecommerce project with a React frontend, Spring Boot backend services, an API gateway, JWT authentication, cart and checkout flows, Kafka events, Redis, MongoDB, and PostgreSQL.
